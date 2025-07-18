@@ -13,6 +13,8 @@ screen = pygame.display.set_mode((0, 0))
 pupil1 = pygame.Vector2(y=screen.get_height() / 2)
 pupil2 = pygame.Vector2(y=screen.get_height() / 2)
 
+lid = pygame.Vector2(y=screen.get_height() / 2 - 40)
+
 dt = 1
 
 print(screen.get_width(), screen.get_height())
@@ -37,16 +39,16 @@ def move_pupil(result, output_image, timestamp_ms):
             max_x = screen.get_width() * 2 / 3
             if centre_x > min_x and centre_x < max_x:
                 # print(f"difference: {x - prev_x}")
-                # if abs(x - prev_x) > 10:
+                if abs(x - prev_x) > 10:
                     pupil1.x = centre_x + gap
                     pupil2.x = centre_x - gap
-                    # prev_x = x
+                    prev_x = x
                     # print("done")
 
-            elif centre_x >= max_x:
+            elif centre_x > max_x:
                 centre_x = max_x
             
-            elif centre_x <= min_x:
+            elif centre_x < min_x:
                 centre_x = min_x
 
             print(x, y)
@@ -76,6 +78,10 @@ while running:
     pygame.draw.circle(screen, "black", pupil1, 40)
     pygame.draw.circle(screen, "black", pupil2, 40)
     pygame.draw.line(screen, "black", (pupil2.x, pupil2.y), (pupil1.x, pupil1.y), 10)
+
+    # blinking logic starts from here
+
+    # pygame.draw.rect(screen, "white", (lid.x, lid.y, ))
 
     if keys[pygame.K_ESCAPE]:
         running = False
