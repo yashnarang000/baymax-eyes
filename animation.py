@@ -1,11 +1,13 @@
 import pygame
+from pygame import mixer
 from  facetracker_module.facetracker import Tracker
 import threading
 import time
 
 pygame.init()
+mixer.init()
 
-screen = pygame.display.set_mode((0, 0))
+screen = pygame.display.set_mode((0, 0), flags=pygame.FULLSCREEN)
 
 dt = 1
 
@@ -55,7 +57,11 @@ thread1 = threading.Thread(target = tracking.start, kwargs={'looping_condition':
 thread1.start()
 # thread2.start()
 
-blinks = 0
+# mixer.music.load('blink-amp.mp3')
+mixer.music.load('pop-amp.mp3')
+# mixer.music.load('cheerful-blink.mp3')
+mixer.music.set_volume(1)
+
 completion = False
 
 def blink(prevBlinkTime, timePeriod, timePerBlink, top_lid, bottom_lid):
@@ -102,6 +108,8 @@ def blink(prevBlinkTime, timePeriod, timePerBlink, top_lid, bottom_lid):
 
                 top_lid.y += speed
                 bottom_lid.y -= speed
+
+                mixer.music.play()
 
             else:
                 if prevTop > top_lid.y:
