@@ -45,33 +45,6 @@ pip install -r requirements.txt
 python animation.py
 ```
 
-### Dependencies
-
-```
-mediapipe>=0.10.0
-opencv-python>=4.8.0
-pygame>=2.5.0
-```
-
-## Project Structure
-
-```
-BAYMAX-EYES/
-├── facetracker_module/
-│   ├── __pycache__/
-│   ├── example.py          # Basic face detection example
-│   ├── facetracker.py      # Core face tracking module
-│   └── venv/
-├── animation.py            # Main animation and blinking logic
-├── baymax_eyes_blog.md     # Project development blog
-├── blazeface_sr.tflite     # MediaPipe BlazeFace model
-├── blink-altered.mp3       # Blink sound effect (variant)
-├── blink-amp.mp3          # Amplified blink sound
-├── cheerful-blink.mp3     # Cheerful blink sound
-├── pop-amp.mp3            # Pop sound effect
-└── pop-blink.mp3          # Pop blink sound
-```
-
 ## Usage
 
 ### Basic Usage
