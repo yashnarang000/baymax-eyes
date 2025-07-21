@@ -173,4 +173,6 @@ while running:
     if keys[pygame.K_ESCAPE]:
         running = False
 
-    pygame.display.flip()
+    pygame.display.update()
+
+pygame.quit()
