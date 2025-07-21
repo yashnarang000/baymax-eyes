@@ -57,8 +57,8 @@ thread1 = threading.Thread(target = tracking.start, kwargs={'looping_condition':
 thread1.start()
 # thread2.start()
 
-# mixer.music.load('blink-amp.mp3')
-mixer.music.load('pop-amp.mp3')
+mixer.music.load('blink-altered.mp3')
+# mixer.music.load('pop-amp.mp3')
 # mixer.music.load('cheerful-blink.mp3')
 mixer.music.set_volume(1)
 
